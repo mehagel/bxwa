@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Welcome to plan preview!</h1>
+  <p>Hello, world!</p>
+  <ul><% @project.each do |project|%>
+      <% @plans.each do |plan|%>
+      <li><%=project.text %><br><%= plan.attributes['href'].value%><br><%= plan.children%></li>
+      <%end%>
+    <%end%>
+  </table>
+</div>
