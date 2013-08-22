@@ -1,6 +1,7 @@
 # require 'pry'
 
 get '/' do
+
 	@projects = []
 	url = 'http://bxwa.com/bxwa_toc/pub/2956/toc.html'
 	data =Nokogiri::HTML(open(url))
@@ -10,6 +11,7 @@ get '/' do
 		# @project.each do |project|
 		# 	p project
 		# end
+
 
 
 	

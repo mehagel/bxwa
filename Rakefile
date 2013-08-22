@@ -85,6 +85,16 @@ namespace :generate do
 
 end
 
+namespace :scrape do
+
+  task :get_agencies do
+    require APP_ROOT.join('db', 'scraper.rb')
+    scraper = MyScraper.new
+    scraper.scrape_agencies
+  end
+
+end
+
 namespace :db do
   desc "Create the database at #{DB_NAME}"
   task :create do
