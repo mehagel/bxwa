@@ -2,8 +2,8 @@
 
 get '/' do
 	@project = []
-	url = 'http://bxwa.com/bxwa_toc/pub/1661/toc.html'
-	data =Nokogiri::HTML(open(url))
+	url = 'http://bxwa.com/bxwa_toc/pub/3587/toc.html'
+	data = Nokogiri::HTML(open(url))
 	@plans = data.css('a')
 
 	@project = data.css('tr :nth-child(2)')
