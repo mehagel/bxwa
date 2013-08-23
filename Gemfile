@@ -18,6 +18,7 @@ gem 'rake'
 gem 'shotgun'
 gem 'nokogiri'
 gem 'pry'
+gem 'sidekiq'
 
 group :test do
   gem 'faker'

@@ -3,14 +3,21 @@
 get '/' do
 
 	@projects = []
-	url = 'http://bxwa.com/bxwa_toc/pub/2956/toc.html'
+	url = 'http://bxwa.com/bxwa_toc/pub/1945/toc.html'
 	data =Nokogiri::HTML(open(url))
-	@city = data.css('h3')
-	@plans = data.css('td nobr a')
-	@projects = data.css('td')
+	# @city = data.css('h3').text
+	# city = @city[0..-18]
+	# @agency = Agency.create(name: city, url: url)
+
+
+
+	# @plans = data.css('td nobr a')
+	# @projects = data.css('td')
 		# @project.each do |project|
 		# 	p project
 		# end
+
+	@agency = Agency.all.sort
 
 
 

@@ -90,7 +90,13 @@ namespace :scrape do
   task :get_agencies do
     require APP_ROOT.join('db', 'scraper.rb')
     scraper = MyScraper.new
-    scraper.scrape_agencies
+    scraper.scrape_agencie
+  end
+
+  task :get_projects do
+    require APP_ROOT.join('db', 'scraper.rb')
+    project_scraper = MyProjectScraper.new
+    project_scraper.get_projects
   end
 
 end

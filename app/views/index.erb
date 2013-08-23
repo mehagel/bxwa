@@ -1,12 +1,11 @@
 <div class="container">
   <h1>Welcome to plan preview!</h1>
-  <p><%=@city%></p>
-  <ul><% @projects.each do |project|%>
-     <!--  <% @plans.each do |plan|%> -->
-      <li><%=project %><br>
 
-     <!-- 	<%= plan.attributes['href'].value%><br><%= plan.children%></li> -->
-  <!--     <%end%>  -->
+
+	<ul><% @agency.each do |agency|%>
+  	<li>	<%= agency.name%><br>
+  			<%= agency.url%><br><br>
+    </li></ul>
     <%end%>
   </table>
 </div>
