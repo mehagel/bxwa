@@ -18,6 +18,14 @@ get '/' do
 		# end
 
 	@agency = Agency.all.sort
+    	agency.each do |project|
+    		noko_project = Nokogiri::HTML(open(project.url))
+    	
+      		if noko_project
+        Projects.create(name: noko_project.css('tr td'), bid_date: noko_project.css('a'))
+      end
+   
+  end
 
 
 

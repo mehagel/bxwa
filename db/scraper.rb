@@ -27,11 +27,11 @@ class MyProjectScraper
   end
 
   def get_projects
-    projects = Agency.all.sort
-    projects.each do |project|
+    agency = Agency.all.sort
+    agency.each do |project|
     noko_project = get(project.url)
       if noko_project
-        Project.create(name: noko_project.css('td') agency_id: agency.id)
+        Projects.create(name: noko_project.css('tr td'), bid_date: noko_project.css('a'))
       end
     end
   end
