@@ -29,7 +29,7 @@ namespace :generate do
           # Remember to create a migration!
         end
       EOF
-    end
+  end
   end
 
   desc "Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks"
@@ -90,7 +90,7 @@ namespace :scrape do
   task :get_agencies do
     require APP_ROOT.join('db', 'scraper.rb')
     scraper = MyScraper.new
-    scraper.scrape_agencie
+    scraper.scrape_agencies
   end
 
   task :get_projects do

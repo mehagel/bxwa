@@ -4,3 +4,7 @@ class Agency < ActiveRecord::Base
   validates :name, uniqueness: true
   validates :name, presence: true
 end
+
+	def get_agencies
+		p 'test'
+	end

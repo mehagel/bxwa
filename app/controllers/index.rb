@@ -18,7 +18,7 @@ get '/' do
 		# end
 
 	@agency = Agency.all.sort
-    	agency.each do |project|
+    	@agency.each do |project|
     		noko_project = Nokogiri::HTML(open(project.url))
     	
       		if noko_project
