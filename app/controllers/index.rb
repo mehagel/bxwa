@@ -2,7 +2,7 @@
 
 get '/' do
 
-	@projects = []
+	@projects =  []
 	url = 'http://bxwa.com/bxwa_toc/pub/1945/toc.html'
 	data =Nokogiri::HTML(open(url))
 	# @city = data.css('h3').text
