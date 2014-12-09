@@ -1,11 +1,11 @@
 <div class="container">
-  <h1>Welcome to plan preview!</h1>
-
-
-	<ul><% @agency.each do |agency|%>
-  	<li>	<%= agency.name%><br>
-  			<%= agency.url%><br><br>
-    </li></ul>
-    <%end%>
-  </table>
+	<table>
+  		<h1>Welcome to plan preview!</h1>
+			<ul><% @agency.each do |agency|%>
+  				<li><%= agency.name%><br>
+  				<%= agency.url%><br><br>
+    			</li>
+    		</ul>
+    			<%end%>
+  	</table>
 </div>

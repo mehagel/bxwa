@@ -17,7 +17,7 @@ get '/' do
 		# 	p project
 		# end
 
-	@agency = Agency.all.sort
+	# @agency = Agency.all.sort
     	# @agency.each do |project|
     	# 	noko_project = Nokogiri::HTML(open(project.url))
     	
@@ -27,9 +27,6 @@ get '/' do
    
   # end
 
-
-
-	
 	# project_new = data.css('tr :nth-child(2)')
 	# 	project_new.each do |project|
 	# 		Projects.create(name: project.name)
