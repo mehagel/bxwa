@@ -7,7 +7,7 @@ get '/' do
 	data =Nokogiri::HTML(open(url))
 	# @city = data.css('h3').text
 	# city = @city[0..-18]
-	# @agency = Agency.create(name: city, url: url)
+	@agency = Agency.create(name: city, url: url)
 
 
 

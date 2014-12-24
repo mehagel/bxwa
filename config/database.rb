@@ -40,5 +40,4 @@ ActiveRecord::Base.establish_connection(
   :password => 'password',
   :database => DB_NAME,
   :encoding => 'utf8'
-)
-createdb: could not connect to database template1: FATAL
+  )
