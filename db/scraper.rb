@@ -8,7 +8,6 @@ class MyScraper
     1..6000.times do |iterator|
       try_to_build_agency("http://www.bxwa.com/bxwa_toc/pub/#{iterator}/toc.html")
     end
-
   end
 
   def try_to_build_agency(potential_site_url)
