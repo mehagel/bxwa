@@ -101,6 +101,12 @@ namespace :scrape do
     project_scraper.get_projects
   end
 
+    task :get_jobs do
+    require APP_ROOT.join('db', 'scraper.rb')
+    job_scraper = GetMyJobs.new
+    job_scraper.get_jobs
+  end
+
 end
 
 namespace :db do
