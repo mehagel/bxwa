@@ -5,7 +5,7 @@ class MyScraper
   end
 
   def scrape_agencies 
-    1..6000.times do |iterator|
+    1..4500.times do |iterator|
       try_to_build_agency("http://www.bxwa.com/bxwa_toc/pub/#{iterator}/toc.html")
     end
   end
@@ -28,9 +28,17 @@ class MyProjectScraper
   def get_projects
     agency = Agency.all.sort
     agency.each do |project|
-    noko_project = get(project.url)
-      if noko_project
-        Projects.create(name: noko_project.css('tr td nobr a'), bid_date: noko_project.css('a'))
+      noko_project = get(project.url)
+       if noko_project
+        links=noko_project.css('a')
+        hrefs = links.map {|link| link.attribute('href').to_s}
+          hrefs.each do |link|
+              urls = project.url[0..-9]+link
+              puts link
+
+              Projects.create(name: link, url: urls)
+
+            end
       end
     end
   end
