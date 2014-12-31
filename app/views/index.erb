@@ -2,11 +2,10 @@
 	<table>
   		<h1>Welcome to plan preview!</h1>
   			<ul><% @project.each do |prj|%>
-            <% if prj.classification == 'Projects Bidding' %>
               <li><%= prj.owner%><br>
+              <li><%= prj.project_name%><br>
   				    <li><%= prj.classification%><br>
               <li><%= prj.url%><br></li>
-              <%end%> 
     		</ul>
     			
           <%end%> 

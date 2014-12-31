@@ -13,8 +13,6 @@ class CreateProjectTable < ActiveRecord::Migration
       t.string :description
       t.string :engineer_estimate
       t.string :contact
-      
-      # t.belongs_to :agency
   		t.timestamps
   	end
   end

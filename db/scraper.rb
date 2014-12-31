@@ -14,10 +14,7 @@ class MyScraper
     noko_agency = get(potential_site_url)
     if noko_agency
       classification  = noko_agency.css('h3').text.split('-').last.strip
-        if classification.includes? "Projects Bidding"
-          puts classification 
-          # Agency.create(name: noko_agency.css('h3').text, url: potential_site_url)  
-        end
+      Agency.create(name: noko_agency.css('h3').text, url: potential_site_url)  
     end
   end
 end
@@ -40,7 +37,6 @@ class MyProjectScraper
               city            = noko_project.css('h3').text.split('-').first
               puts classification  = noko_project.css('h3').text.split('-').last
               Projects.create(city: city, classification: classification, url: urls, owner: project.name.split('-').first)
-
             end
       end
     end
@@ -62,7 +58,6 @@ class GetMyJobs
         if noko_job
           project_name  =noko_job.css('title').text.split(',').first
           state         =noko_job.css('title').text.split(',').last.split('').first(3).join.last(2)
-
           job.update_attributes(project_name: project_name, state: state)
         end
       end
