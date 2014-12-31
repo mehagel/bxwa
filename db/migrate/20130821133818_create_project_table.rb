@@ -7,6 +7,7 @@ class CreateProjectTable < ActiveRecord::Migration
   		t.string :city
   		t.string :state
   		t.string :bid_date
+      t.string :classification
 
   		t.timestamps
   	end

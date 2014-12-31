@@ -2,7 +2,7 @@
 
 get '/' do
 
-	@projects =  []
+	
 	# @agency = []
 	#@agency will need to be removed when the db is built.
 	url = 'http://bxwa.com/bxwa_toc/pub/1945/toc.html'
@@ -33,7 +33,7 @@ get '/' do
 	# 		Projects.create(name: project.name)
 	# 	end
 
-	@project=Projects.all
+	@project=Projects.all.sort
 	# p @project.push (@project_object.text)
 
 	# binding.pry
