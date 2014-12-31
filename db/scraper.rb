@@ -55,15 +55,13 @@ class GetMyJobs
     jobs.each do |job|
       noko_job = get(job.url)
        if noko_job
-        # project =noko_job.css('body b big').text
+        project =noko_job.css('body b big').text
         puts name    =noko_job.css('title').text.split(',').first
-        puts city    =noko_job.css('title').text.split(',').last[0..-2]
-        puts state   =noko_job.css('title').text.split(',').last
+        state   =noko_job.css('title').text.split(',').last.split('').first(3).join
 
         # puts bid_date=noko_job.css('body:nth-child(2)').text
 
-        # job.update_attributes(name: name, city: city)
-
+        # job.update_attributes(name: project, city: name, state: state)
       end
     end
   end

@@ -2,16 +2,16 @@
 	<table>
   		<h1>Welcome to plan preview!</h1>
   			<ul><% @project.each do |prj|%>
-  				<li><%= prj.name%><br>
-  					<%= prj.url%><br><br>
-    			</li>
+            <li><%= prj.city%><br>
+  				  <li><%= prj.classification%><br>
+            <li><%= prj.url%><br></li>
     		</ul>
     			<%end%>
-			<ul><% @agency.each do |agency|%>
+	<!-- 		<ul><% @agency.each do |agency|%>
   				<li><%= agency.name%><br>
   				<%= agency.url%><br><br>
     			</li>
     		</ul>
-    			<%end%>
+    			<%end%> -->
   	</table>
 </div>
