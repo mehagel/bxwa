@@ -1,5 +1,4 @@
 class CreateProjectTable < ActiveRecord::Migration
-    belongs to :agency
   def change
   	create_table :projects do |t|
   		t.string :project_name
@@ -14,6 +13,8 @@ class CreateProjectTable < ActiveRecord::Migration
       t.string :description
       t.string :engineer_estimate
       t.string :contact
+      
+      # t.belongs_to :agency
   		t.timestamps
   	end
   end

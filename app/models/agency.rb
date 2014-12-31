@@ -3,6 +3,7 @@ class Agency < ActiveRecord::Base
   validates :url, uniqueness: true
   validates :name, uniqueness: true
   validates :name, presence: true
+  has_many  :projects
 end
 
 	def get_agencies

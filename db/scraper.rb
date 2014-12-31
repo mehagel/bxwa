@@ -13,12 +13,15 @@ class MyScraper
   def try_to_build_agency(potential_site_url)
     noko_agency = get(potential_site_url)
     if noko_agency
-      Agency.create(name: noko_agency.css('h3').text, url: potential_site_url)  
+      classification  = noko_agency.css('h3').text.split('-').last.strip
+        if classification.includes? "Projects Bidding"
+          puts classification 
+          # Agency.create(name: noko_agency.css('h3').text, url: potential_site_url)  
+        end
     end
   end
 end
 
-\
 class MyProjectScraper
 
   def get(url)
@@ -33,10 +36,11 @@ class MyProjectScraper
         links=noko_project.css('a')
         hrefs = links.map {|link| link.attribute('href').to_s}
           hrefs.each do |link|
-              urls = project.url[0..-9]+link
-              city = noko_project.css('h3').text.split('-').first
-              classification = noko_project.css('h3').text.split('-').last
-              Projects.create(city: city, classification: classification, name: link, url: urls)
+              urls            = project.url[0..-9]+link
+              city            = noko_project.css('h3').text.split('-').first
+              puts classification  = noko_project.css('h3').text.split('-').last
+              Projects.create(city: city, classification: classification, url: urls, owner: project.name.split('-').first)
+
             end
       end
     end
@@ -53,15 +57,14 @@ class GetMyJobs
   def get_jobs
     jobs = Projects.all.sort
     jobs.each do |job|
+      if job.classification == ' Projects Bidding'
       noko_job = get(job.url)
-       if noko_job
-        project =noko_job.css('body b big').text
-        name    =noko_job.css('title').text.split(',').first
-        state   =noko_job.css('title').text.split(',').last.split('').first(3).join
+        if noko_job
+          project_name  =noko_job.css('title').text.split(',').first
+          state         =noko_job.css('title').text.split(',').last.split('').first(3).join.last(2)
 
-        # puts bid_date=noko_job.css('body:nth-child(2)').text
-
-        # job.update_attributes(name: project, city: name, state: state)
+          job.update_attributes(project_name: project_name, state: state)
+        end
       end
     end
   end
