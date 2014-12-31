@@ -56,7 +56,7 @@ class GetMyJobs
       noko_job = get(job.url)
        if noko_job
         project =noko_job.css('body b big').text
-        puts name    =noko_job.css('title').text.split(',').first
+        name    =noko_job.css('title').text.split(',').first
         state   =noko_job.css('title').text.split(',').last.split('').first(3).join
 
         # puts bid_date=noko_job.css('body:nth-child(2)').text
