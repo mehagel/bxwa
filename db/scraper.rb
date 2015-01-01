@@ -14,7 +14,7 @@ class MyScraper
     noko_agency = get(potential_site_url)
     if noko_agency
       classification  = noko_agency.css('h3').text.split('-').last.strip
-      Agency.create(name: noko_agency.css('h3').text, url: potential_site_url)  
+      Agency.create(name: noko_agency.css('h3').text, url: potential_site_url, classification: classification)  
     end
   end
 end
@@ -33,10 +33,10 @@ class MyProjectScraper
         links=noko_project.css('a')
         hrefs = links.map {|link| link.attribute('href').to_s}
           hrefs.each do |link|
-              urls            = project.url[0..-9]+link
+              # urls            = project.url[0..-9]+link
               city            = noko_project.css('h3').text.split('-').first
               puts classification  = noko_project.css('h3').text.split('-').last
-              Projects.create(city: city, classification: classification, url: urls, owner: project.name.split('-').first)
+              # Projects.create(city: city, classification: classification, url: urls, owner: project.name.split('-').first)
             end
       end
     end
