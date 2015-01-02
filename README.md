@@ -13,7 +13,6 @@ bundle exec rake db:migrate
 bundle exec rake db:drop 
 	to drop database
 
-
 bundle exec rake scrape:get_agencies   
 	Retrieve agencies list
 

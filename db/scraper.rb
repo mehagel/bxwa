@@ -14,6 +14,8 @@ class MyScraper
     noko_agency = get(potential_site_url)
     if noko_agency
       classification  = noko_agency.css('h3').text.split('-').last.strip
+      name            = noko_agency.css('h3').text
+      url             = potential_site_url
       Agency.create(name: noko_agency.css('h3').text, url: potential_site_url, classification: classification)  
     end
   end
@@ -33,9 +35,9 @@ class MyProjectScraper
         links=noko_project.css('a')
         hrefs = links.map {|link| link.attribute('href').to_s}
           hrefs.each do |link|
-              # urls            = project.url[0..-9]+link
+              urls            = project.url[0..-9]+link
               city            = noko_project.css('h3').text.split('-').first
-              puts classification  = noko_project.css('h3').text.split('-').last
+              classification  = noko_project.css('h3').text.split('-').last
               # Projects.create(city: city, classification: classification, url: urls, owner: project.name.split('-').first)
             end
       end
@@ -56,9 +58,11 @@ class GetMyJobs
       if job.classification == ' Projects Bidding'
       noko_job = get(job.url)
         if noko_job
-          project_name  =noko_job.css('title').text.split(',').first
-          state         =noko_job.css('title').text.split(',').last.split('').first(3).join.last(2)
-          job.update_attributes(project_name: project_name, state: state)
+          puts bid_date   =noko_job.css('body b')
+          # project_name  =noko_job.css('title').text.split(',').first
+          # state         =noko_job.css('title').text.split(',').last.split('').first(3).join.last(2)
+          # engineer_est  =noko_job.css('body p:nth-child(3)').text.split(',').first
+          # job.update_attributes(project_name: project_name, state: state)
         end
       end
     end
