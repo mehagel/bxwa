@@ -95,6 +95,12 @@ namespace :scrape do
     scraper.scrape_agencies
   end
 
+    task :get_companies do
+    require APP_ROOT.join('db', 'scraper.rb')
+    scraper = MyScraper.new
+    scraper.scrape_companies
+  end
+
   task :get_projects do
     require APP_ROOT.join('db', 'scraper.rb')
     project_scraper = MyProjectScraper.new

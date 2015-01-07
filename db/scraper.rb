@@ -10,6 +10,12 @@ class MyScraper
     end
   end
 
+  def scrape_companies 
+    1..4500.times do |iterator|
+      try_to_build_agency("http://www.bxwa.com/bxwa_toc/private/#{iterator}/toc.html")
+    end
+  end
+
   def try_to_build_agency(potential_site_url)
     noko_agency = get(potential_site_url)
     if noko_agency
