@@ -10,12 +10,6 @@ class MyScraper
     end
   end
 
-  def scrape_companies 
-    1..4500.times do |iterator|
-      try_to_build_agency("http://www.bxwa.com/bxwa_toc/private/#{iterator}/toc.html")
-    end
-  end
-
   def try_to_build_agency(potential_site_url)
     noko_agency = get(potential_site_url)
     if noko_agency
@@ -26,6 +20,31 @@ class MyScraper
     end
   end
 end
+
+
+class MyCompanyScraper
+
+  def get(url)
+    Nokogiri::HTML(open(url)) rescue nil
+  end
+
+  def scrape_companies 
+    1..4500.times do |iterator|
+      try_to_build_company("http://www.bxwa.com/bxwa_toc/private/#{iterator}/toc.html")
+    end
+  end
+
+  def try_to_build_company(potential_site_url)
+    noko_agency = get(potential_site_url)
+    if noko_agency
+      classification  = noko_agency.css('h3').text.split('-').last.strip
+      name            = noko_agency.css('h3').text
+      url             = potential_site_url
+      Agency.create(name: noko_agency.css('h3').text, url: potential_site_url, classification: classification)  
+    end
+  end
+end
+
 
 class MyProjectScraper
 
@@ -39,17 +58,19 @@ class MyProjectScraper
       noko_project = get(project.url)
        if noko_project
         links=noko_project.css('a')
-        hrefs = links.map {|link| link.attribute('href').to_s}
+        hrefs = links.map {|link| link.attribute('href').to_s }
+        
           hrefs.each do |link|
-              urls            = project.url[0..-9]+link
-              city            = noko_project.css('h3').text.split('-').first
-              classification  = noko_project.css('h3').text.split('-').last
+              puts urls            = project.url[0..-9]+link
+              puts city            = noko_project.css('h3').text.split('-').first
+              puts classification  = noko_project.css('h3').text.split('-').last
               # Projects.create(city: city, classification: classification, url: urls, owner: project.name.split('-').first)
             end
       end
     end
   end
 end
+
 
 
 class GetMyJobs

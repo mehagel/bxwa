@@ -95,10 +95,10 @@ namespace :scrape do
     scraper.scrape_agencies
   end
 
-    task :get_companies do
+  task :get_companies do
     require APP_ROOT.join('db', 'scraper.rb')
-    scraper = MyScraper.new
-    scraper.scrape_companies
+    company_scraper = MyCompanyScraper.new
+    company_scraper.scrape_companies
   end
 
   task :get_projects do

@@ -16,6 +16,9 @@ bundle exec rake db:drop
 bundle exec rake scrape:get_agencies   
 	Retrieve agencies list
 
+bundle exec rake scrape:get_companies
+	to build jobs
+
 bundle exec rake scrape:get_projects
 	to retrieve list of projects
 
