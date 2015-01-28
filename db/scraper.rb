@@ -61,10 +61,10 @@ class MyProjectScraper
         puts run=noko_project.css('a:nth-child(3)').text
         hrefs = links.map {|link| link.attribute('href').to_s}
           hrefs.each do |link|
-              # puts urls            = project.url[0..-9]+link
-              # puts city            = noko_project.css('h3').text.split('-').first
-              # puts classification  = noko_project.css('h3').text.split('-').last
-              # Projects.create(city: city, classification: classification, url: urls, owner: project.name.split('-').first)
+              puts urls            = project.url[0..-9]+link
+              puts city            = noko_project.css('h3').text.split('-').first
+              puts classification  = noko_project.css('h3').text.split('-').last
+              Projects.create(city: city, classification: classification, url: urls, owner: project.name.split('-').first)
             end
       end
     end
