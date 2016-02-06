@@ -5,8 +5,16 @@ class MyScraper
   end
 
   def scrape_agencies 
-    1..4500.times do |iterator|
+    1..400.times do |iterator|
       try_to_build_agency("http://www.bxwa.com/bxwa_toc/pub/#{iterator}/toc.html")
+      
+      # agent = Mechanize.new
+      # page=agent.get("http://www.bxwa.com/bxwa_toc/pub/#{iterator}/toc.html")
+      #   page.lings_with(href =>/^https?/).each do |link |
+      #     puts link.href
+      #   end  
+    
+
     end
   end
 
@@ -22,6 +30,7 @@ class MyScraper
 end
 
 
+
 class MyCompanyScraper
 
   def get(url)
@@ -29,7 +38,7 @@ class MyCompanyScraper
   end
 
   def scrape_companies 
-    1..4500.times do |iterator|
+    1..500.times do |iterator|
       try_to_build_company("http://www.bxwa.com/bxwa_toc/private/#{iterator}/toc.html")
     end
   end
@@ -95,3 +104,12 @@ class GetMyJobs
     end
   end
 end
+
+# class URLScrapper
+#   def get_links(url)
+#   Nokogiri::HTML(open(url).read).css("a").map do |link|
+#     if (href = link.attr("href")) && href.match(/^https?:/)
+#       href
+#     end
+#   end.compact
+# end

@@ -2,6 +2,7 @@ require 'rake'
 require 'rspec/core/rake_task'
 require 'nokogiri'
 require 'open-uri'
+require 'mechanize'
 
 
 require ::File.expand_path('../config/environment', __FILE__)
@@ -77,7 +78,6 @@ namespace :generate do
     File.open(path, 'w+') do |f|
       f.write(<<-EOF.strip_heredoc)
         require 'spec_helper'
-
         describe #{name} do
           pending "add some examples to (or delete) #{__FILE__}"
         end

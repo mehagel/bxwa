@@ -26,17 +26,34 @@ GEM
     connection_pool (1.1.0)
     daemons (1.1.9)
     diff-lcs (1.2.4)
+    domain_name (0.5.20160128)
+      unf (>= 0.0.5, < 1.0.0)
     eventmachine (1.0.3)
     faker (1.2.0)
       i18n (~> 0.5)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     i18n (0.6.5)
-    json (1.8.0)
+    json (1.8.3)
+    mechanize (2.7.4)
+      domain_name (~> 0.5, >= 0.5.1)
+      http-cookie (~> 1.0)
+      mime-types (>= 1.17.2, < 3)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.5, >= 2.5.2)
+      nokogiri (~> 1.6)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (>= 0.0.9, < 0.2)
     method_source (0.8.2)
+    mime-types (2.99)
     mini_portile (0.5.1)
     minitest (4.7.5)
     multi_json (1.7.9)
+    net-http-digest_auth (1.4)
+    net-http-persistent (2.9)
     nokogiri (1.6.7.2)
       mini_portile (~> 0.5.0)
+    ntlm-http (0.1.1)
     pg (0.16.0)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -88,6 +105,8 @@ GEM
     tilt (1.4.1)
     timers (1.1.0)
     tzinfo (0.3.37)
+    unf (0.2.0.beta2)
+    webrobots (0.1.2)
 
 PLATFORMS
   ruby
@@ -96,6 +115,7 @@ DEPENDENCIES
   activerecord
   activesupport
   faker
+  mechanize
   nokogiri
   pg
   pry
@@ -106,3 +126,6 @@ DEPENDENCIES
   sinatra
   sinatra-contrib
   thin
+
+BUNDLED WITH
+   1.10.6
