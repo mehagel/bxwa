@@ -1,6 +1,7 @@
 <div class="container">
 	<table>
   	<h1>Welcome to plan preview!</h1>
+    <!-- <ul><% @agency.last%> -->
       <ul><% @project.each do |prj|%>
           <%if prj.project_name%>
         <li><%= prj.owner%><br>
