@@ -1,12 +1,19 @@
 <div class="container">
 	<table>
-  	<h1>Welcome to plan preview!</h1>
-    <!-- <ul><% @agency.last%> -->
+  	<h1>Welcome to the new plan preview!</h1>
+
+<!--     <ul><% @agency.each do |agency|%>
+          <li><%= agency.name%><br>
+          <%= agency.url%><br><br>
+          </li>
+        </ul>
+          <%end%> --> -->
+
       <ul><% @project.each do |prj|%>
           <%if prj.project_name%>
         <li><%= prj.owner%><br>
             <%= prj.project_name%><br>
-            <a href=<%= prj.url %> target="_blank">For more info click here</a><br><br></li>
+           <!--  <a href=<%= prj.url %> target="_blank">For more info click here</a> --><br><br></li>
             <%end%>
         <%end%> </ul>
   </table>
